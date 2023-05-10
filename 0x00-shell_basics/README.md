@@ -1,1 +1,1 @@
- copies all the HTML files
+moves all files beginning with an uppercase letter
