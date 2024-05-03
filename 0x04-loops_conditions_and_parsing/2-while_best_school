@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # while loop 10 time
 i = 0
-while [$i -lt 11] ; do
+while [$i -lt 11] 
+do
     echo "Best School"
-    ((i++))
+    i=$((i+1))
 done
