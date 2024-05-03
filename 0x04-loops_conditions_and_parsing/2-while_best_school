@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 # while loop 10 time
 i=0
+<<<<<<< HEAD
 while [ $i -lt 10 ]
+=======
+while [ $i -lt 10 ] 
+>>>>>>> 5a0362f46c9925b625828f4279652c165d91dcd6
 do
     echo "Best School"
     ((i++))
