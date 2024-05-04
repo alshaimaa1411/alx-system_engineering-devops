@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# Write a Bash script
-pid=$(pgrep -f "4-to_infinity_and_beyond")
+#Write a Bash script that stops 4-to_infinity_and_beyond process.
+pid=$(ps aux | grep "4-to_infinity_and_beyond" | grep -v grep | awk '{print $2}')
 
 # Check if the process is running
 if [ -n "$pid" ]
 then
     # Send a termination signal to the process
-    kill "$pid"
+    kill -15 "$pid"
     echo "Process '4-to_infinity_and_beyond' (PID $pid) stopped."
 else
     echo "Process '4-to_infinity_and_beyond' is not running."
