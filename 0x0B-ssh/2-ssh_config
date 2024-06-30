@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # ssh_config
 
 Host *
