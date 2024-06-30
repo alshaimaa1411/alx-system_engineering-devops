@@ -1,9 +1,8 @@
 #creat_file
 file {'/tmp/school':
-        ensure  => present,           # Ensure the file exists
+        path  => '/tmp/school',
         content => "I love Puppet",
-        owner   => 'www-data',            # Set file owner
-        group   => 'root',            # Set file group
-        mode    => 'www-data',            # Set file permissions
-        permissions => '0744',
+        owner   => 'www-data',     
+        group   => 'www-data',                   
+        mode => '0744',
     }
