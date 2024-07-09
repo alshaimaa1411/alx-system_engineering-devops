@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/env bash
 
 # Update package repository
 sudo apt update
