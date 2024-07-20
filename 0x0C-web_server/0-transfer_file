@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+# Function to display usage
+display_usage() {
+    echo "Usage: $0 PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
+    echo "  - PATH_TO_FILE: Path to the file to be transferred"
+    echo "  - IP: IP address of the server to transfer the file to"
+    echo "  - USERNAME: Username scp connects with"
+    echo "  - PATH_TO_SSH_KEY: Path to the SSH private key that scp uses"
+}
+
+# Check if number of parameters is less than 4
+if [ $# -lt 4 ]; then
+    display_usage
+    exit 1
+fi
+
+# Assigning parameters to variables
+PATH_TO_FILE="$1"
+IP="$2"
+USERNAME="$3"
+PATH_TO_SSH_KEY="$4"
+
+# Checking if the file exists
+if [ ! -f "$PATH_TO_FILE" ]; then
+    echo "Error: File '$PATH_TO_FILE' not found."
+    exit 1
+fi
+
+# Transfer file using scp
+scp -o StrictHostKeyChecking=no -i "$PATH_TO_SSH_KEY" "$PATH_TO_FILE" "$USERNAME@$IP:~/"
+
+# Check if scp command was successful
+if [ $? -eq 0 ]; then
+    echo "File transferred successfully to $USERNAME@$IP:~/"
+else
+    echo "Error transferring file to $USERNAME@$IP"
+fi
